@@ -17,8 +17,10 @@ knitr::opts_chunk$set(
 Estimation of hierarchical Bayesian vector autoregressive model using [BVAR](https://github.com/nk027/bvar) and custom plot for forecasts.
 
 ```{r, echo=F, message=F, warning=F}
+
+set.seed(111) # for reproducible sampling
+
 # load libraries
-set.seed(111)
 library(BVAR)
 library(dplyr)
 library(ggplot2)
