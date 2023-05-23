@@ -27,6 +27,7 @@ priors <- bv_priors(hyper = "auto", mn = mn, soc = soc, sur = sur)
 # Metropolis-Hastings settings
 mh <- bv_metropolis(scale_hess = c(0.05, 0.0001, 0.0001),
                     adjust_acc = TRUE, acc_lower = 0.25, acc_upper = 0.45)
+
 # Run the sampler
 run <- bvar(x, lags = 5, n_draw = 50000, n_burn = 25000, n_thin = 1,
             priors = priors, mh = mh, verbose = TRUE)
@@ -50,7 +51,7 @@ df_preds <- data.frame(value = preds$quants[,,6][3,],
                        ind = seq(0.1, length(preds$quants[,,6][3,]))) %>%
     mutate(period  = "future")
 
-########### Plot
+########### Create Plot
 y_text <- 5.5
 size_all <- 1
 ggplot() +
